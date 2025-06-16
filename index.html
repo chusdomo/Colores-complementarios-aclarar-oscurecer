@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🎨 Explorador de Colores</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+      font-size: 24px; /* 🔥 Texto duplicado */
+    }
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: #222;
+    }
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .button-container button {
+      padding: 10px 15px;
+      font-size: 1.3rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #f0f0f0;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .button-container button:hover {
+      background-color: #dfeffa;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎨 Explorador de Colores</h1>
+    <p>Selecciona una categoría:</p>
+  </header>
+  <div class="button-container">
+    <button onclick="goToCategory('Rojos')">🔴 Rojos</button>
+    <button onclick="goToCategory('Naranjas')">🟠 Naranjas</button>
+    <button onclick="goToCategory('Amarillos')">🟡 Amarillos</button>
+    <button onclick="goToCategory('Verdes')">🟢 Verdes</button>
+    <button onclick="goToCategory('Azules')">🔵 Azules</button>
+    <button onclick="goToCategory('Violetas')">🟣 Violetas</button>
+    <button onclick="goToCategory('Marrones')">🟤 Marrones</button>
+    <button onclick="goToCategory('Neutros')">⚪⚫ Neutros</button>
+    <button onclick="goToCategory('Metalizados')">🟤 Metalizados</button>
+    <button onclick="goToCategory('Pastel')">🎨 Pastel</button>
+    <button onclick="goToCategory('Óxidos')">🟥 Óxidos</button>
+    <button onclick="goToNotes()">📘 Notas</button>
+  </div>
+
+  <script>
+    function goToCategory(category) {
+      window.location.href = `categoria.html?cat=${encodeURIComponent(category)}`;
+    }
+
+    function goToNotes() {
+      window.location.href = `notes.html`;
+    }
+  </script>
+</body>
+</html>

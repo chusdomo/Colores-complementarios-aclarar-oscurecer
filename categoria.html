@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Categoría de Colores</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+      font-size: 24px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: #222;
+    }
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .button-container button {
+      padding: 15px 20px;
+      font-size: 1.3rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #f0f0f0;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-align: center;
+    }
+    .button-container button:hover {
+      background-color: #dfeffa;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="categoryTitle">Categoría</h1>
+  </header>
+  <div class="button-container" id="colorButtons"></div>
+
+  <script src="script.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const category = params.get("cat");
+
+    document.getElementById("categoryTitle").innerText = `Colores - ${category}`;
+
+    const container = document.getElementById("colorButtons");
+    data[category].forEach(color => {
+      const btn = document.createElement("button");
+      btn.innerText = color.nombre;
+      btn.onclick = () => {
+        window.location.href = `color.html?cat=${encodeURIComponent(category)}&color=${encodeURIComponent(color.nombre)}`;
+      };
+      container.appendChild(btn);
+    });
+  </script>
+</body>
+</html>

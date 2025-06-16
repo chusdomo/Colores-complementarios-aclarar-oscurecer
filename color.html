@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detalles del Color</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+      font-size: 24px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: #222;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="colorName">Nombre del Color</h1>
+  </header>
+  <table>
+    <tr><th>Rojo (%)</th><td id="rojo"></td></tr>
+    <tr><th>Amarillo (%)</th><td id="amarillo"></td></tr>
+    <tr><th>Azul (%)</th><td id="azul"></td></tr>
+    <tr><th>Complementario</th><td id="complementario"></td></tr>
+    <tr><th>Gris/Neutro</th><td id="gris"></td></tr>
+  </table>
+
+  <script src="script.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const category = params.get("cat");
+    const colorName = params.get("color");
+
+    const colorData = data[category].find(c => c.nombre === colorName);
+
+    document.getElementById("colorName").innerText = colorData.nombre;
+    document.getElementById("rojo").innerText = colorData.rojo;
+    document.getElementById("amarillo").innerText = colorData.amarillo;
+    document.getElementById("azul").innerText = colorData.azul;
+    document.getElementById("complementario").innerText = colorData.complementario;
+    document.getElementById("gris").innerText = colorData.gris;
+  </script>
+</body>
+</html>
